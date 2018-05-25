@@ -1,0 +1,18 @@
+version: '3'
+
+
+services:
+  proxy:
+    container_name: proxy
+    restart: always
+    env_file:
+      - .env
+    build:
+      context: ./proxy
+    ports:
+      - "8085:8085"
+      - "8083:8083"
+      - "8084:8084"
+    links:
+      - lasneo4j:lasneo4j
+      - lasphpmyadmin:lasphpmyadmin
