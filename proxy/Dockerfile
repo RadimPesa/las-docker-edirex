@@ -1,7 +1,5 @@
 FROM httpd:2.4
 
-EXPOSE 443
-
 
 RUN ln -sf /proc/self/fd/1 /usr/local/apache2/logs/access.log && \
     ln -sf /proc/self/fd/1 /usr/local/apache2/logs/error.log
