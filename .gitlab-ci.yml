@@ -9,7 +9,7 @@ before_script:
 - docker-compose version
 - mkdir proxy/ssl
 - touch proxy/ssl/apache.key
-- touch proxy/ssl/apache.cert
+- touch proxy/ssl/apache.crt
 
 test:
   script:
