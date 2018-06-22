@@ -11,8 +11,19 @@ services:
       context: ./proxy
     ports:
       - "8085:8085"
-      - "8083:8083"
-      - "8084:8084"
+#      - "8083:8083"
+#      - "8084:8084"
     links:
       - lasneo4j:lasneo4j
       - lasphpmyadmin:lasphpmyadmin
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock --no-auth
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+volumes:
+  portainer_data:
