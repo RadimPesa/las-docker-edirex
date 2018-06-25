@@ -12,4 +12,6 @@ COPY ./index.html /usr/local/apache2/htdocs/index.html
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
 
+ENV TZ=Europe/Prague
+
 CMD [ "/start.sh" ]
