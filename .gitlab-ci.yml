@@ -7,14 +7,6 @@ before_script:
 - apk add --update python py-pip python-dev && pip install docker-compose # install docker-compose
 - docker version
 - docker-compose version
-- mkdir proxy/ssl
-
-test-build:
-  stage: test
-  script:
-  - touch proxy/ssl/apache.key
-  - touch proxy/ssl/apache.crt
-  - docker-compose build
 
 build-proxy:
   stage: build
@@ -25,3 +17,11 @@ build-proxy:
     - docker push "$CI_REGISTRY_IMAGE/proxy"
   only:
     - master
+
+test-build:
+  stage: test
+  script:
+  - mkdir proxy/ssl
+  - touch proxy/ssl/apache.key
+  - touch proxy/ssl/apache.crt
+  - docker-compose build
