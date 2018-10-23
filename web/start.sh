@@ -10,7 +10,7 @@
 
 
 # create fqdn.conf
-echo "Define FQDN ${HOST}" >/etc/apache2/fqdn.conf
-
+echo "Servername ${HOST}" > /etc/apache2/conf-enabled/fqdn.conf
+echo "Define FQDN ${HOST}" >> /etc/apache2/conf-enabled/fqdn.conf
 # run Apache
 /usr/sbin/apache2ctl -D FOREGROUND
