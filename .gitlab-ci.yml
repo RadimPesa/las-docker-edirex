@@ -19,6 +19,16 @@ build-proxy:
   only:
     - master
 
+build-web:
+  stage: build
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - cd web
+    - docker build --pull -t "$CI_REGISTRY_IMAGE/web" .
+    - docker push "$CI_REGISTRY_IMAGE/web"
+  only:
+    - master
+
 test-build:
   stage: test
   script:
