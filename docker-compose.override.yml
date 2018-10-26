@@ -8,13 +8,12 @@ services:
     env_file:
       - .env
     build:
-      context: ./proxy
+#      context: ./proxy
+    image: registry.gitlab.ics.muni.cz:443/europdx/las/las-docker-edirex/proxy:latest
     volumes:
       - ./proxy/ssl:/usr/local/apache2/conf/ssl
     ports:
       - "8085:8085"
-#      - "8083:8083"
-#      - "8084:8084"
     links:
       - lasneo4j:lasneo4j
       - lasphpmyadmin:lasphpmyadmin
