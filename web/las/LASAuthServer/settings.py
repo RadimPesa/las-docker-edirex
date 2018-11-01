@@ -5,7 +5,7 @@ DB_NAME = 'lasauthserver'
 DB_USERNAME = 'lasauthserver'
 DB_PASSWORD = 'lasauthsrvpwd2012'
 DB_HOST='lasmysql'
-DEBUG = False
+DEBUG = TRUE
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
