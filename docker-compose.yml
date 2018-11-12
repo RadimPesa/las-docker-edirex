@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
 #    build: ./web/
-    image: registry.gitlab.ics.muni.cz:443/europdx/las/las-docker-edirex/web:latest    
+    image: "registry.gitlab.ics.muni.cz:443/europdx/las/las-docker-edirex/web:${TAG}"
     ports:
       - 443:443
       - 80:80
@@ -64,7 +64,7 @@ services:
     expose:
         - "27017"
     command: mongod --logpath=/dev/null # --quiet
-    
+
   lasneo4j:
     image: neo4j:2.3.11-enterprise
     restart: always
@@ -78,7 +78,7 @@ services:
     volumes:
       - neodata:/data/
       - ./neo4j-data:/neo4j-data
-  
+
   blat-genome:
     container_name: blat-genome
     restart: always
